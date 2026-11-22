@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EEG Live</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>EEG Live</h1>
+    <p id="source-label">Simulated 3-channel recording at 250 Hz</p>
+  </div>
+  <div class="controls">
+    <button id="run">Pause</button>
+    <div class="seg" role="group" aria-label="Mental state">
+      <button data-state="focus" aria-pressed="true">Focused</button>
+      <button data-state="relax" aria-pressed="false">Relaxed</button>
+      <button data-state="closed" aria-pressed="false">Eyes closed</button>
+    </div>
+    <button id="blink">Blink</button>
+    <button id="rec">Record</button>
+  </div>
+</header>
+<main>
+  <section class="paper" aria-label="Live EEG traces"><canvas id="wave"></canvas></section>
+  <aside>
+    <h2>Band power</h2>
+    <div id="bars"></div>
+    <div class="scores">
+      <div><span>Focus</span><b id="focus">0%</b></div>
+      <div><span>Relaxation</span><b id="relax">0%</b></div>
+    </div>
+    <p class="note">Scores are rough estimates from band ratios, not medical measurements.</p>
+  </aside>
+  <section class="spec" aria-label="Spectrogram of channel O1">
+    <canvas id="spec"></canvas>
+    <div class="axis"><span style="bottom:22%">10 Hz</span><span style="bottom:44%">20 Hz</span><span style="bottom:67%">30 Hz</span><span style="bottom:89%">40 Hz</span></div>
+  </section>
+</main>
+<script src="js/dsp.js"></script>
+<script src="js/sources.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

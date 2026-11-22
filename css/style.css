@@ -1,0 +1,33 @@
+:root{--ink:#14213d;--muted:#5b6579;--page:#f3f5f7;--panel:#fff;--line:#d9dee6;--paper:#fdf3f2;--grid:#f0cfcb;--accent:#1f5fbf}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:15px/1.5 "Instrument Sans",system-ui,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding:20px 24px}
+h1{margin:0;font-size:24px;font-weight:600}
+h2{margin:0 0 12px;font-size:15px;font-weight:600}
+header p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.controls{display:flex;flex-wrap:wrap;gap:8px}
+button{font:inherit;font-size:14px;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:7px 12px;cursor:pointer}
+button:hover{border-color:var(--muted)}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.seg{display:flex}
+.seg button{border-radius:0;margin-left:-1px}
+.seg button:first-child{border-radius:6px 0 0 6px;margin:0}
+.seg button:last-child{border-radius:0 6px 6px 0}
+.seg button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+#rec.on{background:#c0392b;color:#fff;border-color:#c0392b}
+main{display:grid;gap:16px;padding:0 24px 24px;grid-template-columns:1fr}
+@media(min-width:900px){main{grid-template-columns:1fr 300px}.spec{grid-column:1/3}}
+.paper{background:var(--paper);border:1px solid var(--grid);border-radius:8px;height:340px}
+.spec{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:8px;height:200px;padding-right:56px}
+.paper canvas,.spec canvas{width:100%;height:100%;display:block}
+.axis span{position:absolute;right:8px;font:11px "Fragment Mono",ui-monospace,monospace;color:var(--muted)}
+aside{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px}
+.bar{display:grid;grid-template-columns:56px 1fr 38px;align-items:center;gap:8px;margin-bottom:10px;font-size:13px}
+.bar i{display:block;height:10px;background:var(--page);border-radius:2px}
+.bar i b{display:block;height:100%;width:0;border-radius:2px;transition:width .15s}
+.bar em{font-style:normal;text-align:right;color:var(--muted);font-family:"Fragment Mono",ui-monospace,monospace}
+.scores{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.scores div{background:var(--page);border-radius:6px;padding:10px 12px}
+.scores span{display:block;font-size:13px;color:var(--muted)}
+.scores b{font-size:26px;font-weight:600}
+.note{font-size:12px;color:var(--muted);margin:12px 0 0}
